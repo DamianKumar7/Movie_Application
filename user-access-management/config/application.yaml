@@ -1,0 +1,39 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: users-ws
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: Damian2000#
+    driver-class-name: org.postgresql.Driver
+  security:
+    user:
+      name: admin
+      password: admin-password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+#
+# Kafka Configuration
+kafka:
+  bootstrap-servers: localhost:9092
+  producer:
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
+jwt:
+  secret: social-media-dashboard
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka
+# Other configurations (logging, etc.)
