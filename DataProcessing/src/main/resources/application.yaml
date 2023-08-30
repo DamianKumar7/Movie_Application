@@ -11,4 +11,5 @@ spring:
       connection-timeout: 60000
       maximum-pool-size: 5
 
-
+jwt:
+  secret: 9a5e4350373fe9be69b63e77b535b290a08009acc9ddfed3f521a2887855557b

@@ -7,3 +7,6 @@ CREATE TABLE watchlist (
 );
 ALTER TABLE watchlist
 ADD COLUMN user_email VARCHAR(255);
+
+ALTER TABLE watchlist
+DROP COLUMN movie_title;
