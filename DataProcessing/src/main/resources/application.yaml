@@ -1,0 +1,14 @@
+server:
+  port: 9081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: Damian2000#
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 5
+
+
