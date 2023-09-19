@@ -8,6 +8,9 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class LikeService {
 
@@ -23,6 +26,7 @@ public class LikeService {
         movie.setMovieId(movieDetails.getMovieId());
         movie.setMoviePoster(movieDetails.getMoviePoster());
         movie.setMovieTitle(movieDetails.getMovieTitle());
+        movie.setUserEmail(movieRequest.getUserEmail());
         likedMoviesRepository.save(movie);
         return true;
     }
@@ -36,7 +40,22 @@ public class LikeService {
         movie.setMovieId(movieDetails.getMovieId());
         movie.setMoviePoster(movieDetails.getMoviePoster());
         movie.setMovieTitle(movieDetails.getMovieTitle());
+        movie.setUserEmail(movieRequest.getUserEmail());
         likedMoviesRepository.delete(movie);
         return true;
+    }
+
+    public List<Movie> likedMoviesByEmail(String request) throws Exception {
+        List<Movie> movies = likedMoviesRepository.findMoviesLikedByUserEmail(request);
+        return movies;
+    }
+    public List<Movie> mostLikedMovied() {
+        List<Movie> result = new ArrayList<>();
+        List<String> movieNames = likedMoviesRepository.findMovieLikesCount();
+        for(String name: movieNames){
+            Movie movie = likedMoviesRepository.findByMovieTitle(name);
+            result.add(movie);
+        }
+        return result;
     }
 }

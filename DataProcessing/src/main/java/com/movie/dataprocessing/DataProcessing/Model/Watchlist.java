@@ -24,4 +24,7 @@ public class Watchlist {
 
     @Column(name = "movie_poster")
     private String moviePoster;
+
+    @Column(name = "user_email")
+    private String userEmail;
 }

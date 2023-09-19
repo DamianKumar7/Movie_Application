@@ -8,11 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "liked_movies")
 public class Movie {
@@ -25,5 +24,8 @@ public class Movie {
 
     @Column(name = "movie_poster")
     private String moviePoster;
+
+    @Column(name = "user_email")
+    private String userEmail;
 
 }

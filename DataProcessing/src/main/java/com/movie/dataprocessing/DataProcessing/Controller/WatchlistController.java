@@ -18,7 +18,7 @@ public class WatchlistController {
     WatchlistService watchlistService;
 
     @PostMapping("/add_movie")
-    public ResponseEntity<?> addMovieToWatchlist(MovieRequest request){
+    public ResponseEntity<?> addMovieToWatchlist(MovieRequest request) throws Exception {
         if(request == null){
             return new ResponseEntity<>("request body cannot be empty", HttpStatus.BAD_GATEWAY);
         }
